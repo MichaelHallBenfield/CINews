@@ -51,13 +51,13 @@ class News_model extends CI_Model
 		$this->load->helper('url');
 		
 		// Foreach checked article delete from db
-		foreach ($this->input->post() as $k => $v)
+		foreach ($this->input->post('delete') as $k => $v)
 		{
 			$this->db->delete('news',array('id' => $v));
 		}
 		
 		// If no rows have been deleted return false
-		if($this->affected_rows() == 0)
+		if($this->db->affected_rows() == 0)
 		{
 			return FALSE;
 		}

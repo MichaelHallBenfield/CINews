@@ -42,7 +42,7 @@ class Admin extends CI_Controller
 				// Load the views
 				$this->load->view('templates/header', $data);
 				$this->load->view('templates/nav', $data);
-				$this->load->view('admin', $data);
+				$this->load->view('admin/index', $data);
 				$this->load->view('templates/footer', $data);
 			}
 
@@ -63,14 +63,15 @@ class Admin extends CI_Controller
 				$this->load->view('templates/header', $data);
 				$this->load->view('templates/nav', $data);
 				$this->load->view('admin/incorrect', $data);
-				$this->load->view('admin', $data);
+				$this->load->view('admin/index', $data);
 				$this->load->view('templates/footer', $data);
 			}
 		}
 	}
 
 	public function news()
-	{
+	{ 
+		// echo print_r($this->input->post());
 		// Load the helper and class required
 		$this->load->helper('form');
 		$this->load->library('form_validation');
@@ -95,7 +96,7 @@ class Admin extends CI_Controller
 			}
 			else
 			{
-				header('Location: /admin');
+				header('Location: /admin/index');
 				die();
 			}
 			$this->load->view('templates/footer', $data);
@@ -118,7 +119,7 @@ class Admin extends CI_Controller
 			}
 			else
 			{
-				header('Location: /admin');
+				header('Location: /admin/index');
 				die();
 			}
 			

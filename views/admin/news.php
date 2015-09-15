@@ -17,16 +17,20 @@
 
 				<?php echo form_label('Delete:', 'delete'); ?>
 				<br/>
-				<?php echo form_checkbox('delete', $news_item['id']); ?>
+				<?php echo form_checkbox('delete[]', $news_item['id']); ?>
 				
 				<hr/>
 				
 			<?php }; ?>
 		
-			<?php if(!isset($news)){ ?>
-			
-					<input class="btn btn-default" type="submit" name="delete" value="Delete posts"/>
+			<?php if(count($news) > 0){ ?>
+					
+					<input class="btn btn-default" type="submit" name="submit" value="Delete posts"/>
 		
+			<?php } else { ?>
+				
+					<h3>There are currently no news items, why not create one?</h3>
+				
 			<?php } ?>
 			<br/>
 			<br/>
