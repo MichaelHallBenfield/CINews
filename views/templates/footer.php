@@ -6,9 +6,9 @@
 		if(!window.jQuery)
 		{
 			var script = document.createElement('script');
-			script.src = "/assets/js/libs/jquery-2.1.4.min.js";
+			script.src = "application/assets/js/libs/jquery-2.1.4.min.js";
 			document.getElementsByTagName('body')[0].appendChild(script);
 		}
 	</script>
-	<script src="/assets/js/libs/bootstrap.min.js"></script>
+	<script src="/application/assets/js/libs/bootstrap.min.js"></script>
 </html>
