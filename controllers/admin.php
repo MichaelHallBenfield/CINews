@@ -71,7 +71,6 @@ class Admin extends CI_Controller
 
 	public function news()
 	{ 
-		// echo print_r($this->input->post());
 		// Load the helper and class required
 		$this->load->helper('form');
 		$this->load->library('form_validation');
@@ -115,12 +114,13 @@ class Admin extends CI_Controller
 			}
 			elseif($this->session->has_userdata('logged_in'))
 			{
+				$this->load->view('admin/delete_error', $data);
 				$this->load->view('admin/news', $data);
 			}
 			else
 			{
-				header('Location: /admin/index');
-				die();
+				$this->load->view('admin/delete_error', $data);
+				$this->load->view('admin/index', $data);
 			}
 			
 			$this->load->view('templates/footer', $data);	

@@ -51,10 +51,18 @@ class News_model extends CI_Model
 		// Load the helper required
 		$this->load->helper('url');
 		
-		// Foreach checked article delete from db
-		foreach ($this->input->post('delete') as $k => $v)
+		// Make sure that an article has been marked for deletion
+		if(count($this->input->post('delete')) > 0)
 		{
-			$this->db->delete('news',array('id' => $v));
+			// Foreach checked article delete from db
+			foreach ($this->input->post('delete') as $k => $v)
+			{
+				$this->db->delete('news',array('id' => $v));
+			}
+		}
+		else
+		{
+			return FALSE;
 		}
 		
 		// If no rows have been deleted return false
